@@ -1,6 +1,7 @@
 const express = require('express');
+
 const userRouter = express.Router();
-const userController = require('../Controllers/userController.js');
+const userController = require('../Controllers/userController');
 
 userRouter
   .route(`/`)

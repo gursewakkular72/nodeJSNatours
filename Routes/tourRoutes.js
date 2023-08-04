@@ -1,6 +1,8 @@
 const express = require('express');
+
 const tourRouter = express.Router();
-const tourController = require('../Controllers/tourController.js');
+
+const tourController = require('../Controllers/tourController');
 
 // param middleware, only executes if we pass an Id to URL
 tourRouter.param('id', tourController.validateId);
@@ -9,7 +11,7 @@ tourRouter.param('id', tourController.validateId);
 tourRouter
   .route(`/`)
   .get(tourController.getAllTours)
-  .post(tourController.postTour);
+  .post(tourController.validateBody, tourController.postTour); // chaining middleware
 
 // the following chain executes for the URL having an 'Id' param after the Base URL.
 tourRouter

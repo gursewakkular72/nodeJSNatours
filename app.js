@@ -12,6 +12,7 @@ console.log('app.js ran');
 // setting up middlewares
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(express.static(`${__dirname}/public`));
 
 // 'api/v1/tours' is the root URL for tourRouters
 app.use('/api/v1/tours', tourRouter);

@@ -6,9 +6,6 @@ const userRouter = require('./Routes/userRoutes.js');
 // const app = require('./server.js');
 
 const app = express();
-
-console.log('app.js ran');
-
 // setting up middlewares
 app.use(express.json());
 app.use(morgan('dev'));

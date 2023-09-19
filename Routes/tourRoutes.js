@@ -4,6 +4,15 @@ const tourRouter = express.Router();
 
 const tourController = require('../Controllers/tourController');
 
+tourRouter.route('/get-monthly-plan').get(tourController.getMonthlyPlan);
+tourRouter.route('/get-stats').get(tourController.getTourStats);
+
+// Aliasing the URL. Middleware to get the 5 cheapest tours
+
+tourRouter
+  .route('/top-5-cheap-tours')
+  .get(tourController.getCheapTours, tourController.getAllTours);
+
 // param middleware, only executes if we pass an Id to URL
 // tourRouter.param('id', tourController.validateId);
 
